@@ -31,6 +31,22 @@ hr{border:0;border-top:1px solid #242424;margin:26px 0}
 .collectionhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
 .collectionhead strong{font-size:21px}
 .collectionhead span{color:var(--muted)}
+.viewtoggle{display:flex;gap:6px;margin:0 0 14px}
+.viewtoggle button{background:#202020;color:#ddd;border:1px solid #333;border-radius:10px;padding:8px 12px;font:inherit;font-size:13px;cursor:pointer}
+.viewtoggle button[aria-pressed="true"]{background:#f4f4f4;color:#111;border-color:#f4f4f4}
+#collection.gridview{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+#collection.gridview .coincard{margin:0;padding:10px;border-radius:15px;min-width:0}
+#collection.gridview .coinrow{display:flex;flex-direction:column;gap:9px}
+#collection.gridview .coinimg{width:100%;height:auto;aspect-ratio:1;border-radius:12px}
+#collection.gridview .coininfo{width:100%}
+#collection.gridview .coinname{font-size:15px}
+#collection.gridview .meta,#collection.gridview .composition,#collection.gridview .pricecaption{font-size:11px}
+#collection.gridview .price{font-size:17px}
+#collection.gridview .coinvalues{grid-template-columns:1fr;margin-top:8px}
+#collection.gridview .coinvalues .name{font-size:11px}
+#collection.gridview .coinvalues .value{font-size:14px}
+#collection.gridview .edit{display:none}
+@media(max-width:520px){#collection.gridview{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}}
 .coincard{border:1px solid #242424;border-radius:20px;padding:12px;margin:0 0 14px}
 .coinrow{display:flex;gap:12px;align-items:flex-start}
 .coinimg{width:118px;height:118px;flex:none;border-radius:18px;background:#f4f4f4;overflow:hidden}
@@ -73,6 +89,8 @@ footer{color:#666;text-align:center;font-size:12px;margin-top:24px}
 </div>
 <hr>
 <div class="collectionhead"><strong>My collection</strong><span>8 types</span></div>
+<div class="viewtoggle" aria-label="Collection layout"><button type="button" id="listView" aria-pressed="true">List view</button><button type="button" id="gridView" aria-pressed="false">Compact view</button></div>
+<div id="collection" class="listview">
 <section class="coincard">
 <div class="coinrow">
 <div class="coinimg"><img src="https://www.images-apmex.com/images/Catalog%20Images/Products/5099_Obv.jpg?height=900&v=20191025091623&width=900" alt="1921 Morgan Silver Dollar front obverse photo on white background"></div>
@@ -129,7 +147,22 @@ footer{color:#666;text-align:center;font-size:12px;margin-top:24px}
 </div>
 <div class="coinvalues"><div><div class="name">Melt value</div><div class="value">₱241.00</div></div></div>
 </section>
+</div>
 <footer>Coin Portfolio · Values shown are sample estimates</footer>
+<script>
+const collection=document.getElementById("collection");
+const listButton=document.getElementById("listView");
+const gridButton=document.getElementById("gridView");
+function setCollectionView(view){
+ const compact=view==="grid"; collection.classList.toggle("gridview",compact); collection.classList.toggle("listview",!compact);
+ listButton.setAttribute("aria-pressed",String(!compact)); gridButton.setAttribute("aria-pressed",String(compact));
+ try{localStorage.setItem("coinPortfolioView",view)}catch(e){}
+}
+listButton.addEventListener("click",()=>setCollectionView("list"));
+gridButton.addEventListener("click",()=>setCollectionView("grid"));
+let saved="list";try{saved=localStorage.getItem("coinPortfolioView")||"list"}catch(e){}
+setCollectionView(saved);
+</script>
 </main>
 </body>
 </html>
