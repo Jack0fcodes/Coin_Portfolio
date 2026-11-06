@@ -40,6 +40,12 @@ hr{border:0;border-top:1px solid #242424;margin:26px 0}
 #collection.gridview .coinimg{width:100%;height:auto;aspect-ratio:1;border-radius:12px}
 #collection.gridview .coininfo{width:100%}
 #collection.gridview .coinname{font-size:15px}
+#collection.gridview .meta,#collection.gridview .composition,#collection.gridview .pricecaption,#collection.gridview .coinvalues{display:none!important}
+#collection.gridview .price{margin-top:7px;font-size:20px}
+.viewtoggle button{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-width:42px;min-height:40px}
+.viewtoggle button svg{width:17px;height:17px;display:block;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.viewtoggle button span{font-size:12px}
+@media(max-width:520px){.viewtoggle button span{display:none}}
 #collection.gridview .meta,#collection.gridview .composition,#collection.gridview .pricecaption{font-size:11px}
 #collection.gridview .price{font-size:17px}
 #collection.gridview .coinvalues{grid-template-columns:1fr;margin-top:8px}
@@ -89,7 +95,7 @@ footer{color:#666;text-align:center;font-size:12px;margin-top:24px}
 </div>
 <hr>
 <div class="collectionhead"><strong>My collection</strong><span>8 types</span></div>
-<div class="viewtoggle" aria-label="Collection layout"><button type="button" id="listView" aria-pressed="true">List view</button><button type="button" id="gridView" aria-pressed="false">Compact view</button></div>
+<div class="viewtoggle" aria-label="Collection layout"><button type="button" id="listView" aria-label="List view" title="List view" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13"/><path d="M3 6h.01M3 12h.01M3 18h.01"/></svg><span>List</span></button><button type="button" id="gridView" aria-label="Compact view" title="Compact view" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span>Compact</span></button></div>
 <div id="collection" class="listview">
 <section class="coincard">
 <div class="coinrow">
