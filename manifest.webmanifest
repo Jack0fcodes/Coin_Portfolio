@@ -1,0 +1,19 @@
+{
+  "name": "Coin Portfolio",
+  "short_name": "Coin Portfolio",
+  "description": "Track your coin collection and portfolio value.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "./icons/coin-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
