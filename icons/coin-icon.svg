@@ -1,8 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
   <rect width="512" height="512" rx="112" fill="#000000"/>
-  <g transform="rotate(-15 256 256)" fill="#ffffff" stroke="#000000" stroke-linejoin="round">
-    <path d="M68 235 A188 100 0 0 0 444 235 L444 278 A188 100 0 0 1 68 278 Z" stroke-width="8"/>
-    <path d="M112 267 L120 310 M176 301 L181 341 M244 320 L246 359 M312 317 L310 356 M380 294 L373 335" fill="none" stroke-width="9" stroke-linecap="round"/>
-    <ellipse cx="256" cy="235" rx="188" ry="100" stroke-width="8"/>
+  <g transform="rotate(-15 256 256)">
+    <path d="M68 220 C92 332 420 332 444 220 L444 258 C420 370 92 370 68 258 Z"
+      fill="#ffffff" stroke="#000000" stroke-width="8" stroke-linejoin="round"/>
+    <path d="M126 292 L132 326 M196 318 L200 352 M270 326 L270 361 M344 311 L340 347 M408 278 L400 315"
+      fill="none" stroke="#000000" stroke-width="10" stroke-linecap="round"/>
+    <ellipse cx="256" cy="220" rx="188" ry="100"
+      fill="#ffffff" stroke="#000000" stroke-width="8"/>
   </g>
 </svg>
