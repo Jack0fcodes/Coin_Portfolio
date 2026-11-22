@@ -10,7 +10,7 @@
   "theme_color": "#000000",
   "icons": [
     {
-      "src": "./icons/coin-icon.png",
+      "src": "./icons/coin-icon.png.png",
       "sizes": "1024x1024",
       "type": "image/png",
       "purpose": "any"
